@@ -1,0 +1,180 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Javascript</title>
+        <link href="styles.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+    </head>
+
+    <body>
+        <header>
+            <h1 style="color: black">Desarrollo web</h1>
+
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="html.html">HTML</a></li>
+                    <li><a href="css.html">CSS</a></li>
+                    <li><a href="javascript.html">Javascript</a></li>
+                    <li><a href="php.html">PHP</a></li>
+                </ul>
+            </nav>
+        </header>
+        <h1>Javascript</h1>
+
+        <section>
+                <figure class="photo-right">
+                <img class="photo-rigth" src="images/javascript.png" height="80%" width="80%" >
+                <figcaption>Logo JavaScript</figcaption>
+                </figure>
+        </section>
+
+        <p>JavaScript (abreviado comúnmente JS) es un lenguaje de programación interpretado, dialecto del estándar ECMAScript. Se define como orientado a objetos,3​ basado en prototipos, imperativo, débilmente tipado y dinámico.</p>
+
+        <p>Se utiliza principalmente en su forma del lado del cliente (client-side), implementado como parte de un navegador web permitiendo mejoras en la interfaz de usuario y páginas web dinámicas​ aunque existe una forma de JavaScript del lado del servidor (Server-side JavaScript o SSJS). Su uso en aplicaciones externas a la web, por ejemplo en documentos PDF, aplicaciones de escritorio (mayoritariamente widgets) es también significativo.</p>
+
+        <p>JavaScript se diseñó con una sintaxis similar a C, aunque adopta nombres y convenciones del lenguaje de programación Java. Sin embargo, Java y JavaScript tienen semánticas y propósitos diferentes.</p>
+        
+        <h2>Semantica</h2>
+        
+        <p>Las variables en JavaScript se definen usando la palabra clave var:</p>
+
+        <aside>
+            <p>
+                var x; // define la variable x, aunque no tiene ningún valor asignado por defecto
+                </br> 
+                var y = 2; // define la variable y y le asigna el valor 2 a ella
+            </p>
+        </aside>
+        
+        <p>Sin embargo, la mayoría de los entornos de ejecución tiene un objeto llamado console que puede ser usado para imprimir por el flujo de salida de la consola de depuración. He aquí un simple programa que imprime “Hello world!”:</p>
+
+        <aside>
+            <p>console.log("Hello world!");</p>
+        </aside>
+
+        <h3>Una función recursiva:</h3>
+
+        <aside>
+            <p>
+                <p>
+                    function factorial(n) {</br>
+                        if (n === 0) {</br>
+                            return 1;</br>
+                        } </br>
+                        return n * factorial(n - 1); </br>
+                    }
+                </p>
+            </p>
+        </aside>
+
+        <h3>Ejemplos de función anónima (o función lambda) y una clausura:</h3>
+
+        <aside>
+            <p>
+                    var displayClosure = function() { </br>
+                        var count = 0; </br>
+                        return function () {</br>
+                            return ++count;</br>
+                        };</br>
+                    }</br>
+                    var inc = displayClosure();</br>
+                    inc(); // devuelve 1</br>
+                    inc(); // devuelve 2</br>
+                    inc(); // devuelve 3
+            </p>
+        </aside>
+
+        <h3>ejemplo general:</h3>
+
+        <aside>
+            <p>
+                /* Busca el mínimo común múltiplo (MCM) de dos números */ </br>
+                function LCMCalculator(x, y) { // función constructora</br>
+                    var checkInt = function (x) { // función interior</br>
+                        if (x % 1 !== 0) {</br>
+                            throw new TypeError(x + " no es un entero"); // lanza una excepción</br>
+                        }</br>
+                        return x;</br>
+                    };</br>
+                    this.a = checkInt(x) // puntos y coma son opcionales</br>
+                    this.b = checkInt(y);</br>
+                }</br>
+                // El prototipo de las instancias de objeto creados por el constructor es el de la propiedad “prototype” del constructor.</br>
+                LCMCalculator.prototype = { // objeto definido como literal</br>
+                    constructor: LCMCalculator, // cuando reasignamos un prototipo, establecemos correctamente su propiedad constructor</br>
+                    gcd: function () { // método que calcula el máximo común divisor</br>
+                        // Algoritmo de Euclides:</br>
+                        var a = Math.abs(this.a), b = Math.abs(this.b), t;</br>
+                        if (a < b) {</br>
+                            // intercambiamos variables</br>
+                            t = b;</br>
+                            b = a;</br>
+                            a = t;</br>
+                        }</br>
+                        while (b !== 0) {</br>
+                            t = b;</br>
+                            b = a % b;</br>
+                            a = t;</br>
+                        }</br>
+                        // Solo necesitamos calcular el MCD una vez, por lo tanto 'redefinimos' este método.</br>
+                        // (Realmente no es una redefinición—está definida en la propia instancia, por lo tanto</br>
+                        // this.gcd se refiere a esta 'redefinición' en vez de a LCMCalculator.prototype.gcd).</br>
+                        // Además, 'gcd' === "gcd", this['gcd'] === this.gcd</br>
+                        this['gcd'] = function () {</br>
+                            return a;</br>
+                        };</br>
+                        return a;</br>
+                    },</br>
+                    // Los nombres de las propiedades del objeto pueden ser especificados con cadenas delimitadas con comillas simples (') o dobles (“).</br>
+                    "lcm" : function () {</br>
+                        // Los nombres de las variables no colisionan con las propiedades del objeto. Por ejemplo: |lcm| no es |this.lcm|.</br>
+                        // No usar |this.a * this.b| para evitar problemas con cálculos en coma flotante.</br>
+                        var lcm = this.a / this.gcd() * this.b;</br>
+                        // Sólo necesitamos calcular MCM una vez, por lo tanto "redefinimos" este método.</br>
+                        this.lcm = function () {</br>
+                            return lcm;</br>
+                        };</br>
+                        return lcm;</br>
+                    },</br>
+                    toString: function () {</br>
+                        return "LCMCalculator: a = " + this.a + ", b = " + this.b;</br>
+                    }</br>
+                };</br>
+                </br>
+                // Definimos una función genérica para imprimir un resultado; esta implementación solo funciona en los navegadores web</br>
+                function output(x) {</br>
+                    document.body.appendChild(document.createTextNode(x));</br>
+                    document.body.appendChild(document.createElement('br'));</br>
+                }</br>
+                </br>
+                // Nota: Los métodos.map() y.forEach() del prototipo Array están definidos en JavaScript 1.6.</br>
+                // Estos métodos son usados aquí para demostrar la naturaleza funcional inherente del lenguaje.</br>
+                [[25, 55], [21, 56], [22, 58], [28, 56]].map(function (pair) { // construcción literal de un Array + función de mapeo.</br>
+                    return new LCMCalculator(pair[0], pair[1]);</br>
+                }).sort(function (a, b) { // ordenamos la colección por medio de esta función</br>
+                    return a.lcm() - b.lcm();</br>
+                }).forEach(function (obj) {</br>
+                    output(obj + ", gcd = " + obj.gcd() + ", lcm = " + obj.lcm());</br>
+                });
+            </p>
+        </aside>
+
+        </br>
+
+        <iframe src="https://www.youtube.com/embed/riZbwRFMFuw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        
+        <footer>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="html.html">HTML</a></li>
+                    <li><a href="css.html">CSS</a></li>
+                    <li><a href="javascript.html">Javascript</a></li>
+                    <li><a href="php.html">PHP</a></li>
+                </ul>
+            </nav>
+        </footer>
+    </body>
+</html>

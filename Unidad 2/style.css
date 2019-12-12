@@ -1,0 +1,35 @@
+article{
+    position: fixed;
+    background-color: paleturquoise;
+    left: 30%;
+    top: 40%;
+    padding: 1%;
+    width: 65%;
+}
+section{
+    position: fixed;
+    background-color: burlywood;
+    left: 30%;
+    padding: 1%;
+    width: 65%;
+}
+h1{
+    text-align: center;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: lightcoral;
+    text-align: justify;
+}
+#ser{
+    background-color: bisque;
+    position: fixed;
+    padding: 1%;
+}
+#sor{
+    background-color: thistle;
+    position: fixed;
+    padding: 1%;
+    top: 40%;
+    width: 25%;
+}

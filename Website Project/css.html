@@ -1,0 +1,262 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>CSS</title>
+        <link href="styles.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+    </head>
+
+    <body>
+        <header>
+            <h1 style="color: black">Desarrollo web</h1>
+
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="html.html">HTML</a></li>
+                    <li><a href="css.html">CSS</a></li>
+                    <li><a href="javascript.html">Javascript</a></li>
+                    <li><a href="php.html">PHP</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <h1>CSS</h1>
+
+        <img src="images/css.png"  alt="CSS logo" height="40%" width="40%" class="float">
+
+        <p>CSS (siglas en inglés de Cascading Style Sheets), en español "Hojas de estilo en cascada", es un lenguaje de diseño gráfico para definir y crear la presentación de un documento estructurado escrito en un lenguaje de marcado. Es muy usado para establecer el diseño visual de los documentos web, e interfaces de usuario escritas en <a href="html.html">HTML</a> o XHTML; el lenguaje puede ser aplicado a cualquier documento XML, incluyendo XHTML, SVG, XUL, RSS, etcétera. También permite aplicar estilos no visuales, como las hojas de estilo auditivas.</p>
+            
+        <p>Junto con <a href="html.html">HTML</a> y <a href="javascript.html">JavaScript</a>, CSS es una tecnología usada por muchos sitios web para crear páginas visualmente atractivas, interfaces de usuario para aplicaciones web y GUIs para muchas aplicaciones móviles (como Firefox OS).</p>
+    
+        <p>La separación del formato y el contenido hace posible presentar el mismo documento marcado en diferentes estilos para diferentes métodos de renderizado, como en pantalla, en impresión, en voz (mediante un navegador de voz o un lector de pantalla, y dispositivos táctiles basados en el sistema Braille. También se puede mostrar una página web de manera diferente dependiendo del tamaño de la pantalla o tipo de dispositivo. Los lectores pueden especificar una hoja de estilos diferente, como una hoja de estilos CSS guardado en su computadora, para sobreescribir la hoja de estilos del diseñador.</p>
+
+        <h2>Sintaxis principal</h2>
+
+        <table>
+            <tbody>
+                <tr>
+                    <th>Patrón</th>
+                    <th>Significado</th>
+                    <th>Nivel CSS de aparición</th>
+                </tr>
+                <tr>
+                    <td>E</td>
+                    <td>un elemento de tipo E</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>E:link</td>
+                    <td>un elemento E que es un enlace que no ha sido visitado (:link) o ya fue visitado (:visited)</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>E:active</td>
+                    <td>un elemento E que está realizando cierta acción por parte del usuario</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>E::first-line</td>
+                    <td>la primera línea formateada de un elemento E</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>E::first-letter</td>
+                    <td>la primera letra formateada de un elemento E</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>.c</td>
+                    <td>todos los elementos con class="c"</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>#myid</td>
+                    <td>el elemento con id="myid"</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>E.warning</td>
+                    <td>un elemento E que perteneciente a la clase "warning"</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>E#myid</td>
+                    <td>un elemento E cuyo id sea "myid"km.bm,. ,</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>E F</td>
+                    <td>un elemento F descediente de un elemento E</td>
+                    <td>1</td>
+                </tr>
+                    <tr>
+                    <td>*</td>
+                    <td>cualquier elemento</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>E[foo]</td>
+                    <td>un elemento E con un atributo "foo"</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>E[foo="bar"]</td>
+                    <td>un elemento E cuyo atributo "foo" tiene un valor exacto de "bar"</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>E[foo~="bar"]</td>
+                    <td>un elemento E cuyo atributo "foo" tiene una lista de valores separados por espacios, y uno de ellos es "bar"</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>E:first-child</td>
+                    <td>el primer hijo de un elemento E</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>E:lang(eo)</td>
+                    <td>un elemento E cuyo idioma esté especificado en "eo"</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>E::before</td>
+                    <td>contenido generado antes del contenido del elemento E</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>E::after</td>
+                    <td>contenido generado después del contenido del elemento E</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>E &gt; F</td>
+                    <td>un elemento F hijo de un elemento E</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>E + F</td>
+                    <td>un elemento E inmediatamente sucedido de un elemento F</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>E[foo^="bar"]</td>
+                    <td>un elemento E cuyo atributo "foo" tenga un valor que comience exactamente con la cadena "bar"</td>
+                    <td>3</td>
+                </tr>
+                    <tr>
+                    <td>E[foo$="bar"]</td>
+                    <td>un elemento E cuyo atributo "foo" tenga un valor que finalice exactamente con la cadena "bar"</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>E[foo*="bar"]</td>
+                    <td>un elemento E cuyo atributo "foo" tenga un valor que contenga la subcadena "bar"</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>E:root</td>
+                    <td>un elemento E en la raíz del documento</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>E:nth-child(n)</td>
+                    <td>un elemento E, el n-esimo hijo de este</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>E:nth-last-child(n)</td>
+                    <td>un elemento E, el n-esimo hijo de este, contando desde el último hijo</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>E:nth-of-type(n)</td>
+                    <td>un elemento E, el n-esimo hijo de este, contando solo los de el mismo tipo que el padre</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>E:nth-last-of-type(n)</td>
+                    <td>un elemento E, el n-esimo hijo de este, contando solo los de el mismo tipo que el padre, y desde el último hijo</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>E:last-child</td>
+                    <td>el último hijo de un elemento E</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>E:first-of-type</td>
+                    <td>un elemento E, los primeros hermanos de su tipo</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>E:last-of-type</td>
+                    <td>un elemento E, los últimos hermanos de su tipo</td>
+                    <td>3
+                    </td>
+                </tr>
+                <tr>
+                    <td>E:only-child</td>
+                    <td>el único hijo del elemento E</td>
+                    <td>3</td>
+                </tr>
+                    <tr>
+                    <td>E:only-of-type</td>
+                    <td>el único hermano del elemento E</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>E:empty</td>
+                    <td>un elemento E que no posea hijos (incluyendo nodos de texto)</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>E:target</td>
+                    <td>un elemento E de enlace siendo pulsado</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>E:enabled</td>
+                    <td>un elemento E de interfaz de usuario habilitado</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>E:disabled</td>
+                    <td>un elemento E de interfaz de usuario deshabilitado</td>
+                    <td>3</td>
+                </tr>
+                    <tr>
+                    <td>E:checked</td>
+                    <td>un elemento E de interfaz de usuario marcado (válido para los checkboxs y los radiobuttons)</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>E:not(s)</td>
+                    <td>eunelemento E que no coincide con el selector simple s</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>E ~ F</td>
+                    <td>un elemento E sucedido de un elemento F</td>
+                    <td>3</td>
+                </tr>
+            </tbody>
+        </table>
+        </br>
+        <iframe src="https://www.youtube.com/embed/8cSo0ijtkzU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+        <footer>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="html.html">HTML</a></li>
+                    <li><a href="css.html">CSS</a></li>
+                    <li><a href="javascript.html">Javascript</a></li>
+                    <li><a href="php.html">PHP</a></li>
+                </ul>
+            </nav>
+        </footer>
+    </body>
+</html>

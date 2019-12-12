@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>PHP</title>
+        <link href="styles.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+    </head>
+
+    <body>
+        <header>
+            <h1 style="color: black">Desarrollo web</h1>
+
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="html.html">HTML</a></li>
+                    <li><a href="css.html">CSS</a></li>
+                    <li><a href="javascript.html">Javascript</a></li>
+                    <li><a href="php.html">PHP</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <h1>PHP</h1>
+
+        <img class="photo-left" src="images/php.png" height="50%" width="50%" >
+
+        <p>PHP, acrónimo recursivo en inglés de PHP: Hypertext Preprocessor (preprocesador de hipertexto), es un lenguaje de programación de propósito general de código del lado del servidor originalmente diseñado para el desarrollo web de contenido dinámico. Fue uno de los primeros lenguajes de programación del lado del servidor que se podían incorporar directamente en un documento <a href="html.html">HTML</a> en lugar de llamar a un archivo externo que procese los datos. El código es interpretado por un servidor web con un módulo de procesador de PHP que genera el <a href="html.html">HTML</a> resultante.</p>
+
+        <p>PHP ha evolucionado por lo que ahora incluye también una interfaz de línea de comandos que puede ser usada en aplicaciones gráficas independientes. Puede ser usado en la mayoría de los servidores web al igual que en muchos sistemas operativos y plataformas sin ningún costo.</p>
+
+        <p>PHP puede ser desplegado en la mayoría de los servidores web y en todos los sistemas operativos y plataformas sin costo alguno. El lenguaje PHP se encuentra instalado en más de 20 millones de sitios web y en un millón de servidores. El número de sitios basados en PHP se ha visto reducido progresivamente en los últimos años, con la aparición de nuevas tecnologías como Node.JS, Golang, ASP.NET, etc. El sitio web de Wikipedia está desarrollado en PHP.5​ Es también el módulo Apache más popular entre las computadoras que utilizan Apache como servidor web.</p>
+        
+        <h3>Características</h3>
+
+        <ul>
+            <li>Orientado al desarrollo de aplicaciones web dinámicas con acceso a información almacenada en una base de datos.</li>
+            <li>Es considerado un lenguaje fácil de aprender, ya que en su desarrollo se simplificaron distintas especificaciones, como es el caso de la definición de las variables primitivas, ejemplo que se hace evidente en el uso de php arrays.</li>
+            <li>El código fuente escrito en PHP es invisible al navegador web y al cliente, ya que es el servidor el que se encarga de ejecutar el código y enviar su resultado HTML al navegador.</li>
+            <li>Capacidad de conexión con la mayoría de los motores de base de datos que se utilizan en la actualidad, destaca su conectividad con MySQL y PostgreSQL.</li>
+            <li>Capacidad de expandir su potencial utilizando módulos (llamados extensiones).</li>
+            <li>Posee una amplia documentación en su sitio web oficial, entre la cual se destaca que todas las funciones del sistema están explicadas y ejemplificadas en un único archivo de ayuda.</li>
+            <li>Es libre, por lo que se presenta como una alternativa de fácil acceso para todos.</li>
+            <li>Permite aplicar técnicas de programación orientada a objetos.</li>
+            <li>No requiere definición de tipos de variables aunque sus variables se pueden evaluar también por el tipo que estén manejando en tiempo de ejecución.</li>
+            <li>Tiene manejo de excepciones (desde PHP5).</li>
+            <li>Si bien PHP no obliga a quien lo usa a seguir una determinada metodología a la hora de programar, aun haciéndolo, el programador puede aplicar en su trabajo cualquier técnica de programación o de desarrollo que le permita escribir código ordenado, estructurado y manejable. Un ejemplo de esto son los desarrollos que en PHP se han hecho del patrón de diseño Modelo Vista Controlador (MVC), que permiten separar el tratamiento y acceso a los datos, la lógica de control y la interfaz de usuario en tres componentes independientes.</li>
+            <li>Debido a su flexibilidad ha tenido una gran acogida como lenguaje base para las aplicaciones WEB de manejo de contenido, y es su uso principal.</li>
+        </ul>
+
+        <h2>Sintaxis</h2>
+
+        <h3>Programa Hola mundo con PHP:</h3>
+
+        <aside>
+            <p>
+                echo 'Hola mundo'; </br>                   
+            </p>
+        </aside>
+
+        <h3>MySQL</h3>
+
+        <aside>
+            <p>
+                    // Solo mostrar errores fatales, de parseo y advertencias para el ejemplo </br>
+                    error_reporting(E_ERROR | E_PARSE | E_WARNING);</br>
+                    
+                    // Obtener los datos enviados por metodo POST y borrar los espacios en blanco del inicio y del final</br>
+                    $usuario = trim($_POST['usuario']);</br>
+                    $contrasena = sha1(trim($_POST['contrasena']));</br>
+                    
+                    // Comprobar que el formulario fue enviado utilizando el boton enviar y que las variables no estan vacias</br>
+                    if (isset($_POST['enviar']) && !empty($usuario) && !empty($contrasena)) {</br>
+                    </br>
+                       // Conectar al servidor MySQL y seleccionar la base de datos 'login'</br>
+                       $conexion = new mysqli('localhost', 'root', '', 'login');</br>
+                    </br>
+                       // Consulta para buscar los usuarios en la base de datos</br>
+                       $consulta_usuario = $conexion->query("SELECT * FROM usuarios WHERE usuario = '$usuario' LIMIT 1");</br>
+                    </br>
+                       // Verificar que se ha encontrado un usuario</br>
+                       if ($consulta_usuario->num_rows > 0) {</br>
+                       </br>
+                          // Obtener los datos del usuario en forma de un array asociativo</br>
+                          $usuario_encontrado = $consulta_usuario->fetch_assoc();</br>
+                        </br>
+                          // Comprobar si la contrasena ingresada es la misma que la que esta en la base de datos</br>
+                          if ($contrasena === $usuario_encontrado['contrasena']) {</br>
+                          </br>
+                             // Texto de exito</br>
+                            echo "Has iniciado sesion correctamente";</br>
+                        </br>
+                          } else {</br>
+                    
+                             // Texto de error</br>
+                             echo "La contrasena ingresada no es correcta";</br>
+                          }</br>
+                        </br>
+                       } else {</br>
+                       </br>
+                           // Texto de error</br>
+                          echo "El usuario ingresado no existe";</br>
+                       }</br>
+                    </br>
+                       // Cerrar la conexion</br>
+                       $conexion->close();</br>
+                    }
+            </p>
+        </aside>
+
+        </br>
+        
+        <iframe src="https://www.youtube.com/embed/ykGRYEX0n60" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        
+        <footer>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="html.html">HTML</a></li>
+                    <li><a href="css.html">CSS</a></li>
+                    <li><a href="javascript.html">Javascript</a></li>
+                    <li><a href="php.html">PHP</a></li>
+                </ul>
+            </nav>
+        </footer>
+    </body>
+</html>

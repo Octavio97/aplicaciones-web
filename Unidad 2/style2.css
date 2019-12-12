@@ -1,0 +1,16 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: chocolate;
+}
+h1{
+    text-align: center;
+}
+aside{
+    background-color: cornflowerblue;
+}
+#parte1{
+    background-color: slategray;
+}
+#parte2{
+    background-color: orangered;
+}

@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Curriculum</title>
+        <script language="JavaScript">
+        document.getElementById("boton", clic, true);
+            
+        function clic(){            
+        var con = document.getElementById("texto").value;    
+        if(con == 1){
+            document.getElementById("cabeza").innerHTML = "Datos personales";
+            document.getElementById("cuerpo").innerHTML = "Nombre: Octavio Gastelum Valencia<br> Fecha de nacimiento: 19/febrero/1997<br> Teléfono: (664)7327535<br> Correo electrónico: gastelumcampeon@gmail.com";
+        }
+        else if(con == 2){
+            document.getElementById("cabeza").innerHTML = "Educación";
+            document.getElementById("cuerpo").innerHTML = "2015-Actual - Universidad Instituto Tecnológico de Tijuana - Ingeniería en informática<br> 2012-2015 - Preparatoria Colegio Cristobal Colon - Diploma informática para oficinas."
+        }
+        else if(con == 3){
+            document.getElementById("cabeza").innerHTML = "Cursos y diplomados";
+            document.getElementById("cuerpo").innerHTML = "2015 - Curso “Desarrollo de aplicaciones móviles” impartido por Fundación Activate de Google y la Universidad Complutense de Madrid.<br>2016 - Curso “Instalador de cables de cobre” impartido por Capacítate para el empleo de la Fundación Carlos Slim.<br>2016 - Curso “Reparador de celulares y tablets” impartido por Capacítate para el empleo de la Fundación Carlos Slim.<br>2016 - Curso de “Técnico en redes de datos” impartido por Capacítate para el empleo de la Fundación Carlos Slim.<br>2018 - Curso “Networking fundamentals” impartido por Microsoft Virtual Academy.<br>2019 - Curso “HTML Básico” impartido por el portal Udemy.";
+        }
+        else if(con == 4){
+            document.getElementById("cabeza").innerHTML = "Habilidades";
+            document.getElementById("cuerpo").innerHTML = "<ul><li>Paqueteria Office</li><li>Programación C# (media)</li><li>Programación Java (Básico)</li><li>Manejo de SQL y MySQL (Básico-intermedio)</li><li>Administración de redes</li></ul>";
+        }
+        else if(con == 5){
+            document.getElementById("cabeza").innerHTML = "Actitudes";
+            document.getElementById("cuerpo").innerHTML = "<ul><li>Perseverante</li><li>Objetivo</li><li>Organizado</li><li>Metodico</li></ul>";
+        }
+        else{
+            alert("Ingresa numero valido");
+        }
+        }    
+        </script>
+        <style>
+            body{
+                background-color:burlywood;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            h1{
+                text-align: center;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <h1>Curriculum de Octavio Gastelum Valencia</h1>
+        <ol>
+            <li>Datos personales</li>
+            <li>Educación</li>
+            <li>Cusos y diplomados</li>
+            <li>Habilidades</li>
+            <li>Actitudes</li>
+        </ol>
+        <input id="texto" type="text" required placeholder="Ingrese numero">
+        <button id="boton" onclick="clic()">Ingresar</button>
+        <h2 id="cabeza"></h2>
+        <div id="cuerpo"></div>
+    </body>
+</html>
